@@ -1,0 +1,18 @@
+---
+import SortForm from './SortForm.astro';
+
+interface Props {
+	numberOfJobs: number;
+	sortOptions: { name: string; value: string }[];
+	selectedSort: string;
+}
+
+const { numberOfJobs, sortOptions, selectedSort } = Astro.props;
+---
+
+<div class="mb-4 flex items-center justify-between">
+	<p class="text-xl font-bold text-[#4C5071] dark:text-[#7C81A7]">
+		{numberOfJobs} job{numberOfJobs === 1 ? '' : 's'}
+	</p>
+	<SortForm {sortOptions} {selectedSort} />
+</div>
